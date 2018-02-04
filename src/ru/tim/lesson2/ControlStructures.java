@@ -37,5 +37,20 @@ public class ControlStructures {
         return res; // your implementation here
     }
 
+    private String printTextPerRole(String[] roles, String[] textLines) {
+        StringBuilder res = new StringBuilder();
+        for (String name : roles) {
+            res.append(name).append(":\n");
+            for (int i = 0; i < textLines.length; ++i){
+                if(textLines[i].startsWith(name + ": ")){
+                    res.append((i + 1)).append(") ").append(textLines[i].replaceFirst(name + ": ", "" ));
+                    res.append("\n");
+                }
+            }
+            res.append("\n");
+        }
+        return res.toString();
+    }
+
 
 }
